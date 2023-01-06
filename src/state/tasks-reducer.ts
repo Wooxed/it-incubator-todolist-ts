@@ -62,7 +62,7 @@ export const tasksReducer = (state: TasksStateType, action: ActionsType): TasksS
         }
         case 'ADD-TODOLIST': {
             const stateCopy = {...state}
-            stateCopy[v1()] = []
+            stateCopy[action.todolistId] = []
             return stateCopy
         }
         default:
@@ -81,7 +81,4 @@ export const changeTaskStatusAC = (taskId: string, isDone: boolean, todolistId: 
 }
 export const changeTaskTitleAC = (taskId: string, title: string, todolistId: string): ChangeTaskTitleActionType => {
     return {type: "CHANGE-TASK-TITLE", taskId, title, todolistId}
-}
-export const AddTodolistAC = (title: string): AddTodolistActionType => {
-    return {type: "ADD-TODOLIST", title}
 }
